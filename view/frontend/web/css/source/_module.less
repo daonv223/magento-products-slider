@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'AmaticSC';
+    src: url("../DaoNguyen_ProductsSlider/fonts/AmaticSC-Regular.ttf") format("truetype");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'AmaticSC';
+    src: url("../DaoNguyen_ProductsSlider/fonts/AmaticSC-Bold.ttf") format("truetype");
+    font-weight: bold;
+}
+
+& when (@media-common = true) {
+    .block-products-slider {
+        font-family: 'AmaticSC';
+
+        .block-title {
+            text-align: center;
+            font-size: 4.8rem;
+            letter-spacing: 0;
+            color: #212121;
+        }
+
+        .product-item {
+            text-align: right;
+
+            .product-item-info {
+                width: 100%;
+            }
+
+            .product-item-details {
+                font-weight: bold;
+            }
+        }
+
+        .slick-next:before {
+            content: url("../DaoNguyen_ProductsSlider/images/next.png");
+            padding-left: 100px;
+        }
+
+        .slick-prev:before {
+            content: url("../DaoNguyen_ProductsSlider/images/prev.png");
+            padding-right: 100px;
+        }
+
+        button {
+            background: transparent !important;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+}

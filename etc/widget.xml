@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="products_slider" class="DaoNguyen\ProductsSlider\Block\ProductsSlider">
+        <label>Products Slider</label>
+        <description>Product Sliders</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="true" visible="true">
+                <label>Title</label>
+            </parameter>
+            <parameter name="category_id_1" xsi:type="text" required="true" visible="true">
+                <label>Category Id 1</label>
+            </parameter>
+            <parameter name="category_id_2" xsi:type="text" required="true" visible="true">
+                <label>Category Id 2</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>
