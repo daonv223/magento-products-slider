@@ -1,13 +1,75 @@
 @font-face {
-    font-family: 'AmaticSC';
-    src: url("../DaoNguyen_ProductsSlider/fonts/AmaticSC-Regular.ttf") format("truetype");
-    font-weight: normal;
+    font-family: 'AlmoniNeue';
+    src: url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-ultralight/almoni-neue-ultralight.woff2') format('woff2'),url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-ultralight/almoni-neue-ultralight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'AlmoniNeue';
+    src: url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-light/almoni-neue-light.woff2') format('woff2'),url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-light/almoni-neue-light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'AlmoniNeue';
+    src: url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-regular/almoni-neue-regular.woff2') format('woff2'),url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-regular/almoni-neue-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'AlmoniNeue';
+    src: url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-demibold/almoni-neue-demibold.woff2') format('woff2'),url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-demibold/almoni-neue-demibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'AlmoniNeue';
+    src: url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-bold/almoni-neue-bold.woff2') format('woff2'),url('../DaoNguyen_ProductsSlider/fonts/almoni-neue-bold/almoni-neue-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'AlmoniTzar';
+    src: url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA/AlmoniTzarAAA.eot');
+    src: url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA/AlmoniTzarAAA.eot?#iefix') format('embedded-opentype'),url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA/AlmoniTzarAAA.woff') format('woff'),url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA/AlmoniTzarAAA.ttf') format('truetype'),url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA/AlmoniTzarAAA.svg#AlmoniTzarAAA') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'AlmoniTzar';
+    src: url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA-Bold/AlmoniTzarAAA-Bold.eot');
+    src: url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA-Bold/AlmoniTzarAAA-Bold.eot?#iefix') format('embedded-opentype'),url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA-Bold/AlmoniTzarAAA-Bold.woff') format('woff'),url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA-Bold/AlmoniTzarAAA-Bold.ttf') format('truetype'),url('../DaoNguyen_ProductsSlider/fonts/AlmoniTzarAAA-Bold/AlmoniTzarAAA-Bold.svg#AlmoniTzarAAA') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
 }
 
 @font-face {
     font-family: 'AmaticSC';
-    src: url("../DaoNguyen_ProductsSlider/fonts/AmaticSC-Bold.ttf") format("truetype");
-    font-weight: bold;
+    src: url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Regular.eot?#iefix') format('embedded-opentype'),url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Regular.woff2') format('woff2'),url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Regular.woff') format('woff'),url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Regular.ttf') format('truetype'),url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Regular.svg#AmaticSC-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap
+}
+
+@font-face {
+    font-family: 'AmaticSC';
+    src: url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Bold.eot?#iefix') format('embedded-opentype'),url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Bold.woff2') format('woff2'),url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Bold.woff') format('woff'),url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Bold.ttf') format('truetype'),url('../DaoNguyen_ProductsSlider/fonts/AmaticSC/AmaticSC-Bold.svg#AmaticSC-Bold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap
 }
 
 & when (@media-common = true) {
@@ -21,31 +83,29 @@
             color: #212121;
         }
 
-        .product-item {
-            text-align: right;
+        // .product-item {
+        //     text-align: right;
 
-            .product-item-info {
-                width: 100%;
-            }
+        //     .product-item-info {
+        //         width: 100%;
+        //     }
 
-            .product-item-details {
-                font-weight: bold;
-            }
-        }
+        //     .product-item-details {
+        //         font-weight: bold;
+        //     }
+        // }
 
         .slick-next:before {
             content: url("../DaoNguyen_ProductsSlider/images/next.png");
-            padding-left: 100px;
         }
 
         .slick-prev:before {
             content: url("../DaoNguyen_ProductsSlider/images/prev.png");
-            padding-right: 100px;
         }
 
-        button {
-            background: transparent !important;
-        }
+        // button {
+        //     background: transparent !important;
+        // }
     }
 }
 

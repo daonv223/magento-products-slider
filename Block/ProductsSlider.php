@@ -3,20 +3,21 @@ declare(strict_types=1);
 
 namespace DaoNguyen\ProductsSlider\Block;
 
-use Magento\Catalog\Api\CategoryRepositoryInterface;
-use Magento\Catalog\Block\Product\AbstractProduct;
-use Magento\Catalog\Block\Product\Context;
-use Magento\Catalog\Model\Category;
 use Magento\Catalog\Model\Product;
+use Magento\Catalog\Model\Category;
+use Magento\Framework\Pricing\Render;
+use Magento\Catalog\Block\Product\Context;
+use Magento\Framework\App\ActionInterface;
 use Magento\Catalog\Model\Product\Visibility;
+use Magento\Catalog\Pricing\Price\FinalPrice;
+use Magento\Catalog\Block\Product\AbstractProduct;
+use Magento\Framework\View\Element\BlockInterface;
+use Magento\Catalog\Api\CategoryRepositoryInterface;
 use Magento\Catalog\Model\ResourceModel\Product\Collection;
 use Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
-use Magento\Catalog\Pricing\Price\FinalPrice;
-use Magento\Framework\Exception\NoSuchEntityException;
-use Magento\Framework\Pricing\Render;
-use Magento\Framework\View\Element\BlockInterface;
-
-class ProductsSlider extends AbstractProduct implements BlockInterface
+use Magento\Framework\Url\Helper\Data;
+use Magento\Framework\DataObject\IdentityInterface;
+class ProductsSlider extends AbstractProduct implements BlockInterface, IdentityInterface
 {
     protected $_template = 'DaoNguyen_ProductsSlider::products_slider.phtml';
 
@@ -24,6 +25,7 @@ class ProductsSlider extends AbstractProduct implements BlockInterface
         private CollectionFactory $collectionFactory,
         private Visibility $visibility,
         private CategoryRepositoryInterface $categoryRepository,
+        private Data $urlHelper,
         Context $context,
         array $data = []
     ) {
@@ -33,7 +35,6 @@ class ProductsSlider extends AbstractProduct implements BlockInterface
     /**
      * @param int $categoryId
      * @return Collection
-     * @throws NoSuchEntityException
      */
     public function getProductCollectionByCategory(int $categoryId)
     {
@@ -44,6 +45,16 @@ class ProductsSlider extends AbstractProduct implements BlockInterface
             ->addTaxPercents()
             ->addAttributeToSelect($this->_catalogConfig->getProductAttributes())
             ->addUrlRewrite();
+        $collection->addAttributeToFilter('type_id', 'simple');
+        $collection->addAttributeToFilter('status', 1);
+        $collection->joinField(
+            'stock_status',
+            'cataloginventory_stock_status',
+            'stock_status',
+            'product_id=entity_id',
+            '{{table}}.stock_status=1',
+            'left'
+        );
         /** @var Category $category */
         $category = $this->categoryRepository->get($categoryId);
         $collection->addStoreFilter()->addCategoryFilter(
@@ -87,5 +98,22 @@ class ProductsSlider extends AbstractProduct implements BlockInterface
             );
         }
         return $price;
+    }
+
+    public function getAddToCartPostParams(Product $product)
+    {
+        $url = $this->getAddToCartUrl($product, ['_escape' => false]);
+        return [
+            'action' => $url,
+            'data' => [
+                'product' => (int) $product->getEntityId(),
+                ActionInterface::PARAM_NAME_URL_ENCODED => $this->urlHelper->getEncodedUrl($url),
+            ]
+        ];
+    }
+
+    public function getIdentities()
+    {
+        return [\Magento\Catalog\Model\Product::CACHE_TAG];
     }
 }
