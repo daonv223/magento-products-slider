@@ -73,42 +73,167 @@
 }
 
 & when (@media-common = true) {
+    .page-main {
+        max-width: 100% !important;
+        direction: rtl;
+    }
+
     .block-products-slider {
-        font-family: 'AmaticSC';
+        font-family: 'AlmoniNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-style: normal;
+        line-height: 1.42857143;
 
         .block-title {
             text-align: center;
             font-size: 4.8rem;
             letter-spacing: 0;
             color: #212121;
+            font-family: 'AmaticSC', 'AlmoniNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
 
-        // .product-item {
-        //     text-align: right;
+        .product-item-info {
+            width: 100%;
+            position: relative;
+        }
 
-        //     .product-item-info {
-        //         width: 100%;
-        //     }
+        .product-item {
+            .product-item-name {
+                font-weight: 700;
+                font-size: 16px;
+                color: #000;
+            }
 
-        //     .product-item-details {
-        //         font-weight: bold;
-        //     }
-        // }
+            .product-item-inner {
+                display: none;
+                text-align: center;
+                position: absolute;
+                z-index: 99;
+                bottom: 5%;
+                width: 100%;
+
+                .action.tocart {
+                    background: transparent;
+                    border: none;
+                    color: #fff;
+                }
+            }
+
+            .price {
+                font-weight: 700;
+                font-size: 18px;
+                color: #000;
+            }
+
+            .special-price {
+                .price {
+                    color: red;
+                }
+            }
+
+            .old-price {
+                .price-wrapper {
+                    text-decoration: line-through;
+                }
+            }
+
+            .price-box {
+                margin: 0;
+            }
+        }
+
+        .product.data.items {
+            border-bottom: 0;
+
+            .item.title a:after {
+                content: none;
+            }
+
+            ol {
+                padding: 0;
+            }
+        }
+
+        .product.data.items>.item.title {
+            float: right;
+            width: 50%;
+            text-align: center;
+        }
+
+        .product.data.items>.item.content {
+            float: left;
+            margin-right: -100%;
+            margin-left: 0;
+            border: none;
+            padding: 10px 10px 30px;
+            width: 100%;
+            margin-top: 42px;
+        }
+
+        .product.data.items>.item.title>.switch {
+            background: transparent;
+            border: none;
+            z-index: 2;
+        }
+
+        .product.data.items>.item.title.active>.switch {
+            border-bottom: 1px solid #000;
+        }
+
+        .slick-next {
+            right: 0;
+        }
+
+        .slick-prev {
+            left: 0;
+        }
+
+        .slick-arrow {
+            width: 20px;
+            height: 20px;
+            background: transparent;
+        }
+
+        .product-item:hover {
+            .product-image-wrapper {
+                background-image: linear-gradient(0deg, #5a5a5a 0%, rgba(255, 255, 255, 0) 100%);
+            }
+
+            .product-image-photo {
+                opacity: 0.5;
+            }
+
+            .product-item-inner {
+                display: block;
+            }
+        }
 
         .slick-next:before {
-            content: url("../DaoNguyen_ProductsSlider/images/next.png");
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url("../DaoNguyen_ProductsSlider/images/next.png");
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
         .slick-prev:before {
-            content: url("../DaoNguyen_ProductsSlider/images/prev.png");
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url("../DaoNguyen_ProductsSlider/images/prev.png");
+            background-size: cover;
+            background-repeat: no-repeat;
         }
-
-        // button {
-        //     background: transparent !important;
-        // }
     }
 }
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
-
+    .block-products-slider {
+        .product.data.items>.item.title {
+            width: auto;
+            text-align: unset;
+        }
+    }
 }

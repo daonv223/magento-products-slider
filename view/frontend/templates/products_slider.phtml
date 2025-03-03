@@ -14,7 +14,7 @@ $type = 'widget-new-grid';
         <p role="heading" aria-level="2"><?= $block->escapeHtml($block->getTitle()) ?></p>
     </div>
     <div class="block-content product data items">
-        <div class="item title" data-role="collapsible">
+        <div class="item title" data-role="collapsible" data-toggle="trigger">
             <a class="switch" href="#tab1">קטגוריה</a>
         </div>
         <div id="tab1" class="products item content" data-role="content">
@@ -64,13 +64,13 @@ $type = 'widget-new-grid';
                                 </a>
                             </strong>
                             <?= $block->getProductPriceHtml($item, $type); ?>
-                            
+
                         </div>
                     </li>
                 <?php endforeach; ?>
             </ol>
         </div>
-        <div class="item title" data-role="collapsible">
+        <div class="item title" data-role="collapsible" data-toggle="trigger">
             <a class="switch" href="#tab2">קטגוריה</a>
         </div>
         <div id="tab2" class="products item content" data-role="content">
@@ -151,7 +151,7 @@ $type = 'widget-new-grid';
                 });
             });
 
-            
+
             $('#slide-items-1').on('init', function(event, slick) {
                 $('#slide-items-1').show();
                 $('#slide-items-2').slick({
@@ -191,105 +191,3 @@ $type = 'widget-new-grid';
         })
     })
 </script>
-
-<style>
-    .page-main {
-        max-width: 100% !important;
-        direction: rtl;
-    }
-
-    .block-products-slider {
-        font-family: 'AlmoniNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-style: normal;
-        line-height: 1.42857143;
-    }
-
-    .block-products-slider .product-item-info {
-        width: 100%;
-    }
-
-    .block-products-slider .product-item:hover .product-image-wrapper {
-        background-image: linear-gradient(0deg, #5a5a5a 0%, rgba(255, 255, 255, 0) 100%);
-    }
-
-    .block-products-slider .product-item:hover .product-image-photo {
-        opacity: 0.5;
-    }
-
-    .block-products-slider .product-item .product-item-inner{
-        display: none;
-    }
-
-    .block-products-slider .product-item:hover .product-item-inner {
-        display: block;
-    }
-
-    .block-products-slider .product-item .product-item-name {
-        font-weight: 700;
-        font-size: 16px;
-        color: #000;
-    }
-
-    .block-products-slider .product-item .product-item-inner {
-        text-align: center;
-        position: absolute;
-        top: -50px;
-        z-index: 99;
-        width: 432px;
-        top: 300px;
-    }
-
-    .block-products-slider .product-item .product-item-inner .action.tocart {
-        background: transparent;
-        border: none;
-        color: #fff;
-    }
-
-    .block-products-slider .product-item .price {
-        font-weight: 700;
-        font-size: 18px;
-        color: #000;
-    }
-
-    .block-products-slider .product-item .special-price .price {
-        color: red;
-    }
-
-    .block-products-slider .product-item .old-price .price-wrapper {
-        text-decoration: line-through;
-    }
-
-    .block-products-slider .product.data.items>.item.content {
-        float: left;
-        margin-right: -100%;
-        margin-left: 0;
-        border: none;
-        padding: 35px 70px;
-    }
-
-    .block-products-slider .product.data.items>.item.content ol {
-        padding: 0;
-    }
-
-    .block-products-slider .product.data.items>.item.title {
-        margin: 0 0 0 -1px;
-        float: right
-    }
-
-    .block-products-slider .product.data.items>.item.title>.switch {
-        background: transparent;
-        border: none;
-    }
-
-    .block-products-slider .product.data.items>.item.title.active>.switch {
-        border-bottom: 1px solid #000;
-    }
-
-    .block-products-slider .slick-next {
-        right: -4%;
-    }
-
-    .block-products-slider .slick-prev {
-        left: -4%;
-    }
-</style>
